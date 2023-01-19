@@ -9,6 +9,7 @@ import {
   Delete,
   NotFoundException,
   Session,
+  UseInterceptors,
 } from '@nestjs/common';
 //use interscptor
 //class -> 응답을 가로채기 위한 라이브러리
@@ -18,9 +19,12 @@ import { UsersService } from './users.service';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { UserDto } from './dto/user.dto';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorator/current-user.decorator';
+import { CurrentUserInterceptor } from './interceptors/current-user.interceptor';
 
 @Controller('auth')
 @Serialize(UserDto)
+@UseInterceptors(CurrentUserInterceptor)
 export class UsersController {
   constructor(
     private usersService: UsersService,
@@ -28,8 +32,8 @@ export class UsersController {
   ) {}
 
   @Get('/whoami')
-  whoAmI(@Session() session: any) {
-    return this.usersService.findOne(session.userId);
+  whoAmI(@CurrentUser() user: string) {
+    return user;
   }
 
   @Post('/signout')
