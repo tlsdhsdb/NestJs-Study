@@ -35,7 +35,7 @@ NestJs를 이용하여 메세지 API를 구현해, 다음과 같은 내용을 �
 
 [코드 바로가기](https://github.com/tlsdhsdb/NestJs-Study/tree/master/di/src)
 
-모듈간의 종속성 관계를 학습하기 위해 작성한 프로젝트, 컴퓨터의 기본구조를 모방하여 구성하였습니다.
+모듈간의 종속성 관계를 학습하기 위해 작성한 프로젝트, 컴퓨터의 기본구조를 참고하여 구성하였습니다.
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/42714724/213594684-0d42d348-6e95-4b62-8c85-59af1783f1de.png">
 
 ## Car Pricing 
